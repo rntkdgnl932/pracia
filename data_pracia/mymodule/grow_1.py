@@ -48,7 +48,7 @@ def tuto_start(cla):
         full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\grow\\grow_1\\level_up.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.83)
+        imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.75)
         if imgs_ is not None and imgs_ != False:
             print("level_up", imgs_)
 
@@ -155,6 +155,17 @@ def tuto_grow(cla):
 
     try:
         print("pracia tuto", cla)
+
+        full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\grow\\grow_1\\story_setting.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set(0, 200, 960, 1030, cla, img)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_2(600, 500, cla)
+            time.sleep(0.3)
+            click_pos_2(480, 720, cla)
+            time.sleep(0.2)
+
 
         full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\grow\\grow_2\\x_2.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -1912,7 +1923,7 @@ def tuto_grow(cla):
         full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\grow\\grow_1\\skip_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set(0, 0, 960, 1030, cla, img)
+        imgs_ = imgs_set(700, 30, 960, 200, cla, img)
         if imgs_ is not None and imgs_ != False:
             print("skip_1 보인다 ^ㅅ^", imgs_)
             click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -1920,10 +1931,18 @@ def tuto_grow(cla):
             full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\grow\\grow_1\\skip_2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set(0, 0, 960, 1030, cla, img)
+            imgs_ = imgs_set(700, 30, 960, 200, cla, img)
             if imgs_ is not None and imgs_ != False:
                 print("skip_2 보인다 ^ㅅ^", imgs_)
                 click_pos_reg(imgs_.x, imgs_.y - 5, cla)
+            else:
+                full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\grow\\grow_1\\skip__2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set(700, 30, 960, 200, cla, img)
+                if imgs_ is not None and imgs_ != False:
+                    print("skip__2 보인다 ^ㅅ^", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y - 5, cla)
 
         full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\grow\\grow_1\\quest_go_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
