@@ -201,7 +201,7 @@ def now_hunting(cla):
         global assist_count
         from potion import maul_potion_get
         from function_game import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, int_put_, click_pos_reg
-        from action import juljun, level_up, clean_screen, menu_open
+        from action import juljun_off, level_up, clean_screen, menu_open
         import numpy as np
         import cv2
 

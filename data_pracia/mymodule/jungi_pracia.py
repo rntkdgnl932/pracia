@@ -196,7 +196,7 @@ def go_jungi(cla, data):
 
 def quest_ing(cla):
     from function_game import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
-    from action import menu_open, clean_screen, juljun, level_up, dead_die, quest_move_m
+    from action import menu_open, clean_screen, juljun_off, level_up, dead_die, quest_move_m
     from massenger import line_to_me
     from potion import maul_potion_get, potion_check
     from schedule import myQuest_play_add
