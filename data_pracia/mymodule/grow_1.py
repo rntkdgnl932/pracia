@@ -146,7 +146,7 @@ def tuto_grow(cla):
     from function_game import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
     from massenger import line_to_me
     from schedule import myQuest_play_add
-    from action import juljun, menu_close, clean_screen
+    from action import juljun_off, menu_close, clean_screen
 
     import pyautogui
     import random
