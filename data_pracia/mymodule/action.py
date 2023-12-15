@@ -21,9 +21,8 @@ def juljun_off(cla):
             imgs_ = imgs_set(0, 0, 960, 1030, cla, img)
             if imgs_ is not None and imgs_ != False:
                 print("juljun_1", imgs_)
-                x_ = imgs_.x
-                y_ = imgs_.y
-                drag_pos(x_, y_, x_ + 500, y_, cla)
+                drag_pos(480, 530, 880, 530, cla)
+                time.sleep(0.2)
             else:
                 break
             time.sleep(0.5)
@@ -735,7 +734,8 @@ def gonghun_(cla):
         if imgs_ is not None and imgs_ != False:
             click_pos_2(920, 105, cla)
 
-
+        time.sleep(0.2)
+        clean_screen(cla)
 
     except Exception as e:
         print(e)

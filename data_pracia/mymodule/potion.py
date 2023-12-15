@@ -35,6 +35,8 @@ def potion_setting(cla):
 
         print("potion_setting")
 
+        changed = False
+
         potion_set_ = False
         potion_set_count = 0
         while potion_set_ is False:
@@ -227,16 +229,19 @@ def potion_check(cla):
                         potion_get_ready += 1
                         print("potion", potion_get_ready)
 
-        if potion_get_ready > 5:
-            # 절전모드는 바로 사러 가고, 절전모드 아닐때는 셋팅화면 다시 분석하고 맞을 경우 사러가야함.
-            # 물약사러 가야함
-            full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\grow\\grow_2\\juljun_1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set(0, 0, 960, 1030, cla, img)
-            if imgs_ is not None and imgs_ != False:
+
+        # 절전모드는 바로 사러 가고, 절전모드 아닐때는 셋팅화면 다시 분석하고 맞을 경우 사러가야함.
+        # 물약사러 가야함
+        full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\grow\\grow_2\\juljun_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set(0, 0, 960, 1030, cla, img)
+        if imgs_ is not None and imgs_ != False:
+            if potion_get_ready > 1:
+                juljun_off(cla)
                 maul_potion_get(cla)
-            else:
+        else:
+            if potion_get_ready > 5:
                 potion_setting(cla)
 
     except Exception as e:
@@ -255,6 +260,10 @@ def maul_potion_get(cla):
     import numpy as np
     import cv2
     try:
+
+        # 공헌부터..
+        gonghun_(cla)
+
         potion_get_ready = 0
 
         potion_get = False

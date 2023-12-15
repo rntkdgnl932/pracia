@@ -17,13 +17,13 @@ def go_test():
 
     from function_game import imgs_set_, imgs_set, click_pos_reg, click_pos_2, text_check_get, int_put_
     from jungi_pracia import go_jungi
-    from action import menu_open, clean_screen, juljun_off, juljun_on, dead_die, juljun_attack_check
+    from action import menu_open, clean_screen, juljun_off, juljun_on, dead_die, juljun_attack_check, gonghun_
     from get_item_pracia import get_item_start
     from potion import potion_check, potion_quickslot, maul_potion_get
 
 
     print("test")
-    cla = "one"
+    cla = "four"
 
     plus = 0
 
@@ -37,9 +37,13 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    print("result_attack result_attack result_attack result_attack result_attack")
-    result_attack = juljun_attack_check(cla)
-    print("result_attack", result_attack)
+
+
+    gonghun_(cla)
+
+    # print("result_attack result_attack result_attack result_attack result_attack")
+    # result_attack = juljun_attack_check(cla)
+    # print("result_attack", result_attack)
 
 
     full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\potion\\out_jabhwa.PNG"
