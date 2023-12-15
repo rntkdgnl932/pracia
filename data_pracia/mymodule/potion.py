@@ -412,13 +412,44 @@ def maul_potion_get(cla):
                         quest_move_m(cla)
 
                     print("잡화상점 진입")
+
+
+                    # 물약 선택택
                     buy_now = False
-                    for i in range(10):
+                   for i in range(10):
                         full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\potion\\jabwha_check.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set(200, 100, 260, 140, cla, img)
                         if imgs_ is not None and imgs_ != False:
+
+                            # 일반 장비 팔기
+
+                            click_pos_2(235, 120, cla)
+                            time.sleep(0.3)
+                            click_pos_2(710, 1000, cla)
+                            time.sleep(0.3)
+                            click_pos_2(840, 1000, cla)
+                            time.sleep(0.3)
+                            full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\potion\\buy_confirm.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set(480, 570, 620, 660, cla, img)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
+
+                            for c in range(10):
+                                full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\potion\\jabhwa_small_potion.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set(80, 170, 170, 220, cla, img)
+                                if imgs_ is not None and imgs_ != False:
+                                    break
+                                else:
+                                    click_pos_2(100, 120, cla)
+                                time.sleep(0.5)
+
                             full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\potion\\jabhwa_small_potion.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -473,7 +504,7 @@ def maul_potion_get(cla):
                                 click_pos_2(370, 590, cla)
                                 time.sleep(0.5)
 
-                                for c in range(2):
+                                for c in range(7):
                                     click_pos_2(530, 590, cla)
                                     time.sleep(0.1)
                                 full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\potion\\buy_confirm.PNG"
