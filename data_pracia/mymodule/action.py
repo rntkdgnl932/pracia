@@ -794,13 +794,13 @@ def dead_die(cla):
                     print("die_confirm_2", imgs_)
                     click_pos_reg(imgs_.x, imgs_.y, cla)
 
-            result_schedule = myQuest_play_check(v_.now_cla, "check")
+            result_schedule = myQuest_play_check(cla, "check")
             print("result_schedule", result_schedule)
             result_schedule_ = result_schedule[0][2]
 
 
 
-            if '육성' in result_schedule_:
+            if '육성' in result_schedule_ or '전기' in result_schedule_:
 
                 myQuest_play_add(cla, result_schedule_)
 
@@ -1121,3 +1121,96 @@ def juljun_attack_check(cla):
         print(e)
         return 0
 
+def levelup_check(cla):
+    from function_game import click_pos_2, imgs_set_, click_pos_reg, imgs_set, drag_pos, random_int
+    import numpy as np
+    import cv2
+    import pyautogui
+    try:
+        # level_up 관련
+        full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\grow\\grow_1\\level_up.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.75)
+        if imgs_ is not None and imgs_ != False:
+            print("level_up", imgs_)
+
+            full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\grow\\grow_1\\new_skill_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set(0, 0, 960, 1030, cla, img)
+            if imgs_ is not None and imgs_ != False:
+                print("new_skill_1", imgs_)
+                click_pos_2(480, 750, cla)
+                time.sleep(1.5)
+                click_pos_2(480, 750, cla)
+                time.sleep(1)
+                click_pos_2(930, 55, cla)
+                time.sleep(1)
+                click_pos_2(745, 140, cla)
+                time.sleep(1)
+
+                full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\grow\\grow_1\\skill_get.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set(0, 0, 960, 1030, cla, img)
+                if imgs_ is not None and imgs_ != False:
+                    print("skill_get", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                pyautogui.moveTo(930 + random_int(), 55 + random_int(), 0.5)
+
+                full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\grow\\grow_1\\jadong_skill_11.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set(0, 0, 960, 1030, cla, img)
+                if imgs_ is not None and imgs_ != False:
+                    print("jadong_skill_11", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\grow\\grow_1\\skill_get.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set(0, 0, 960, 1030, cla, img)
+                if imgs_ is not None and imgs_ != False:
+                    print("skill_get", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    drag_pos(140, 910, 140, 270, cla)
+                    time.sleep(0.5)
+                    full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\grow\\grow_1\\skill_get.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set(0, 0, 960, 1030, cla, img)
+                    if imgs_ is not None and imgs_ != False:
+                        print("skill_get", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\grow\\grow_1\\jadong_skill_11.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set(0, 0, 960, 1030, cla, img)
+                        if imgs_ is not None and imgs_ != False:
+                            print("jadong_skill_11", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(2)
+                click_pos_2(930, 55, cla)
+
+            else:
+                level_up_ = False
+                level_up_count = 0
+                while level_up_ is False:
+                    level_up_count += 1
+                    if level_up_count > 5:
+                        level_up_ = True
+                    full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\grow\\grow_2\\level_up.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.75)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(473, 723, cla)
+                    else:
+                        level_up_ = True
+                    time.sleep(0.2)
+
+    except Exception as e:
+        print(e)
+        return 0

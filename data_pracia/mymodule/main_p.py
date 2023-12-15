@@ -40,7 +40,7 @@ import colorthief
 # from function import imgs_set, imgs_set_, click_pos_2, random_int, text_check_get_3, int_put_, text_check_get, \
 #     click_with_image, drag_pos, image_processing, get_region, click_pos_reg
 from function_game import imgs_set, imgs_set_, click_pos_2, random_int, text_check_get_3, int_put_, text_check_get, click_with_image, drag_pos, image_processing, get_region, click_pos_reg, win_left_move, win_right_move
-
+from action import levelup_check, dead_die
 
 from massenger import line_monitor, line_to_me
 from schedule import myQuest_play_check, myQuest_play_add
@@ -48,6 +48,8 @@ from schedule import myQuest_play_check, myQuest_play_add
 from grow_1 import tuto_start
 from jungi_pracia import jungi_start
 from jadong_pracia import jadong_start
+
+from character_select_and_game_start import game_start_screen
 
 from stop_event18 import _stop_please
 
@@ -3208,7 +3210,7 @@ class game_Playing(QThread):
 
 
                                 # 게임 시작 화면인지 분석부터 하기
-                                # game_start_screen(v_.now_cla, character_id)
+                                game_start_screen(v_.now_cla, character_id)
 
 
 
@@ -3217,11 +3219,12 @@ class game_Playing(QThread):
                                 _stop_please(v_.now_cla)
 
 
-
+                                # levelup check
+                                levelup_check(v_.now_cla)
 
 
                                 # 죽었는지 파악
-                                # dead_die(v_.now_cla, result_schedule_)
+                                dead_die(v_.now_cla)
 
 
 
