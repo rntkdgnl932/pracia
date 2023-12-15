@@ -416,7 +416,7 @@ def maul_potion_get(cla):
 
                     # 물약 선택택
                     buy_now = False
-                   for i in range(10):
+                    for i in range(10):
                         full_path = "c:\\my_games\\pracia\\data_pracia\\imgs\\potion\\jabwha_check.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
