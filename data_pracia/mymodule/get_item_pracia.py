@@ -9,13 +9,15 @@ def get_item_start(cla):
     from function_game import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
     from massenger import line_to_me
     from daily_mission import request, go_confirm
-    from action import clean_screen, gonghun_
+    from action import clean_screen, gonghun_, juljun_off
     from jadong import jadong_
 
     import numpy as np
     import cv2
     try:
         print("get_item_start")
+
+        juljun_off(cla)
 
         get_upjuk(cla)
 

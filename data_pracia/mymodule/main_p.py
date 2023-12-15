@@ -50,6 +50,7 @@ from jungi_pracia import jungi_start
 from jadong_pracia import jadong_start
 
 from character_select_and_game_start import game_start_screen
+from get_item_pracia import get_item_start
 
 from stop_event18 import _stop_please
 
@@ -936,7 +937,7 @@ class FirstTab(QWidget):
         # 마을 의뢰
         self.com_group6 = QGroupBox('육성, 각종템받기, 거래소등록하기, 의뢰')
         cb6 = QComboBox()
-        list6 = ['스케쥴 선택', '캐릭터바꾸기', '각종템받기', '버프와물약사기', '거래소등록', '튜토육성', '의뢰_세라보그', '의뢰_바란', '의뢰_국경지대', '의뢰_유로키나산맥']
+        list6 = ['스케쥴 선택', '각종템받기', '거래소등록', '튜토육성']
         cb6.addItems(list6)
         vbox6 = QHBoxLayout()
         vbox6.addWidget(cb6)
@@ -1843,9 +1844,9 @@ class FirstTab(QWidget):
         maul_ = onMaul
         if onCharacter == 0:
             pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
-        elif onMaul == '마을 의뢰 장소 선택' or onMaul == 'none':
+        elif onMaul == '스케쥴 선택' or onMaul == 'none':
             pyautogui.alert(button='넵', text='마을 의뢰 장소를 선택해 주시지예', title='아 진짜 뭐합니꺼')
-        elif onCharacter != 0 and onMaul != '마을 의뢰 장소 선택':
+        elif onCharacter != 0 and onMaul != '스케쥴 선택':
             print('char_', char_)
             print('maul_', maul_)
             if onCla == "One" or onCla == "Two":
@@ -3238,6 +3239,9 @@ class game_Playing(QThread):
 
                                 if result_schedule_ == "튜토육성":
                                     tuto_start(v_.now_cla)
+                                elif result_schedule_ == "각종템받기":
+                                    get_item_start(v_.now_cla)
+                                    myQuest_play_add(v_.now_cla, result_schedule_)
                                 elif "전기" in result_schedule_:
                                     jungi_start(v_.now_cla, result_schedule_)
                                 elif "사냥" in result_schedule_:
